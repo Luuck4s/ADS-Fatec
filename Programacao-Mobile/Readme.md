@@ -4,10 +4,10 @@
 
 
 
-## [:zap: Dart](https://github.com/Luuck4s/Programacao-Mobile/tree/main/dart)
+## [:zap: Dart](https://github.com/Luuck4s/ADS-Fatec/tree/main/Programacao-Mobile/dart)
 
 
-## [:tada: Flutter](https://github.com/Luuck4s/Programacao-Mobile/tree/main/flutter)
+## [:tada: Flutter](https://github.com/Luuck4s/ADS-Fatec/tree/main/Programacao-Mobile/flutter)
 
 --- 
 
