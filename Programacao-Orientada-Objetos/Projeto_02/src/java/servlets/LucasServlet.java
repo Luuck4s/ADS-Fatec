@@ -41,7 +41,7 @@ public class LucasServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h3><a href='index.html'> Voltar</a></h3>");
-            out.println("<h2> Lucas Andrade de Lima</h1>");
+            out.println("<h2> Lucas Andrade de Lima</h1>"); 
             out.println("<h2> RA: 1290481922040 </h1>");
             out.println("<h2><a href='https://github.com/Luuck4s' target='_blank'> Github </a> </h1>");
             out.println("</body>");
