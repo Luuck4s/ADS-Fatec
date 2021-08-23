@@ -7,6 +7,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,6 +46,7 @@ public class JurosCompostoServlet extends HttpServlet {
             int meses = 0;
             double juros, valor = 0;
             double jurosCalculated;
+           
             try{
                 meses = Integer.parseInt(request.getParameter("time"));
                 juros = Double.parseDouble(request.getParameter("fees"));
@@ -55,7 +57,7 @@ public class JurosCompostoServlet extends HttpServlet {
                 out.println("<p>Valor = R$ "+ valor  +"</p>");
                 out.println("<p>Meses =  "+ meses  +"</p>");
                 out.println("<p>Juros =  "+ (juros)  +" % </p><br>");
-                out.println("<h3>VF =  R$ "+ Math.round(valor * jurosCalculated)  +"</h3>");
+                out.println("<h3>VF =  R$ "+ String.format("%.2f", (valor * jurosCalculated))  +"</h3>");
             }catch(Exception ex){
                 out.println("<p style='color:red'>Erro ao ler parâmetros: "+ex.getMessage()+"<p>");
             }
