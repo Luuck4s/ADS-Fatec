@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Calendário</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style type="text/css">
+        .flex{
+             display: flex;
+        }
+        
+        .mx-5{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        
+    </style>
+    <body>
+       
+        <h1>Calendário</h1>
+        
+        <form action="calendar.jsp" class="flex ">
+            <div class="mx-5">
+                <label for="mes">Mês:</label>
+                <input id="mes" type="number" name="month" max="12" min="1" /> 
+            </div>
+            
+             <div class="mx-5">
+                <label for="ano">Ano:</label>
+                <input id="ano" type="number" name="year" /> 
+            </div>
+            
+           
+            <input type="submit" value="Buscar">
+        </form>
+    </body>
+</html>
