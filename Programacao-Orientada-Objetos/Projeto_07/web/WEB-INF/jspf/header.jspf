@@ -1,0 +1,23 @@
+<% 
+    String user = (String) session.getAttribute("auth-user");
+
+%>
+
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <h1>Lucas Andrade APP</h1>
+    <ul>
+        <li> <a href="index.jsp">Home</a></li>
+        <li><a href="about.jsp">Sobre</a></li>
+    </ul>
+    
+        
+    <% if(user != null) { %>
+    
+    <p>Logado como <%= user %>
+    
+    <form action="index.jsp" method="post">
+        <input type="submit" name="auth-logout" value="Sair" />
+    </form>
+    <% } %>
+</div>
