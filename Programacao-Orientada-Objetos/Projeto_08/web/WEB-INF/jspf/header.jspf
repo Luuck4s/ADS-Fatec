@@ -1,0 +1,83 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Random"%>
+<%
+    String user = (String) session.getAttribute("auth-user");
+
+    if (application.getAttribute("counter-users") == null) {
+        application.setAttribute("counter-users", 1);
+    }
+
+    if (request.getParameter("auth-login") != null) {
+        String username = request.getParameter("auth-username");
+        session.setAttribute("auth-user", username);
+
+        int counter = (int) application.getAttribute("counter-users");
+        application.setAttribute("counter-users", counter + 1);
+        
+      
+        ArrayList<Integer> numbersIntern = new ArrayList<Integer>();
+
+        Random rand = new Random();
+        
+        application.setAttribute("user" + counter, username);
+        
+        for (int i = 0; i <= 6; i++) {
+            int randomNumber = (int) Math.ceil((Math.random() * 60) + 1);
+
+            if (i == 0) {
+                numbersIntern.add(randomNumber);
+
+            } else {
+
+                while (numbersIntern.contains(randomNumber)) {
+                    randomNumber = (int) Math.ceil((Math.random() * 60) + 1);
+                }
+
+                numbersIntern.add(randomNumber);
+
+            }
+
+            session.setAttribute("number" + i, numbersIntern.get(i));
+        }
+
+        response.sendRedirect(request.getRequestURI());
+    } else if (request.getParameter("auth-logout") != null) {
+        session.removeAttribute("auth-user");
+
+        int counter = (int) application.getAttribute("counter-users");
+        application.setAttribute("counter-users", counter - 1);
+
+        response.sendRedirect(request.getRequestURI());
+    }
+%>
+
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <h1>Lucas Andrade APP</h1>
+
+
+    <% if (user != null) {%>
+    <ul>
+        <li> <a href="index.jsp">Home</a></li>
+        <li> <a href="lucas.jsp">Sobre</a></li>
+        <li> <a href="lucas-dica-megasena.jsp">Dica megasena</a></li>
+    </ul>
+
+    <p>Logado como <%= user%>
+
+    <form method="post">
+        <input type="submit" name="auth-logout" value="Sair" />
+    </form>
+    <% } else { %>
+    <form method="post">
+        <div>
+            <label>Login</label>
+            <input type="text" name="auth-username" required />
+        </div>
+        <div>
+            <input type="submit" name="auth-login" value="Entrar" />
+        </div>
+    </form>
+    <% }%>
+
+</div>
