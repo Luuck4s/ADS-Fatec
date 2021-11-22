@@ -1,0 +1,24 @@
+<% 
+    String user = (String) session.getAttribute("auth-user");
+
+%>
+
+
+<div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <h1>Lucas Andrade TasksApp</h1>
+    
+        
+    <% if(user != null) { %>
+    
+    <p>Logado como <%= user %>
+    
+    <form action="index.jsp" method="post">
+        <input type="submit" name="auth-logout" value="Sair" />
+    </form>
+    <% } else { %>
+        <form action="index.jsp" method="post">
+            <input type="text" name="auth-username" />
+            <input type="submit" name="auth-login" value="Entrar" />
+        </form>
+    <% } %>
+</div>
